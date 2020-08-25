@@ -16,9 +16,9 @@ namespace ParsingWebsiteInformation.DB
         /// <param name="productAttr">Атрибуты продукта.</param>
         public static void InsertData(ProductDto productAttr)
         {
-            using (var connection = new SQLiteConnection("Data Source=CompanyWorkers.sqlite;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=SqliteDb.sqlite;Version=3;"))
             {
-                connection.ConnectionString = "Data Source = CompanyWorkers.sqlite";
+                connection.ConnectionString = "Data Source = SqliteDb.sqlite";
                 connection.Open();
 
                 using (var command = new SQLiteCommand(connection))
@@ -41,9 +41,9 @@ namespace ParsingWebsiteInformation.DB
         /// </summary>
         public static void SelectData()
         {
-            using (var connection = new SQLiteConnection("Data Source=CompanyWorkers.sqlite;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=SqliteDb.sqlite;Version=3;"))
             {
-                connection.ConnectionString = "Data Source = CompanyWorkers.sqlite";
+                connection.ConnectionString = "Data Source = SqliteDb.sqlite";
                 connection.Open();
 
                 using (var command = new SQLiteCommand(connection))
@@ -74,11 +74,11 @@ namespace ParsingWebsiteInformation.DB
         /// </summary>
         public static void CreateDbAndTable()
         {
-            var baseName = "CompanyWorkers.sqlite";
+            var baseName = "SqliteDb.sqlite";
 
             SQLiteConnection.CreateFile(baseName);
 
-            using (var connection = new SQLiteConnection("Data Source=CompanyWorkers.sqlite;Version=3;"))
+            using (var connection = new SQLiteConnection("Data Source=SqliteDb.sqlite;Version=3;"))
             {
                 connection.ConnectionString = "Data Source = " + baseName;
                 connection.Open();

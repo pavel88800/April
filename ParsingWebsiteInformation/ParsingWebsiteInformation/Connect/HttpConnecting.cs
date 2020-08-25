@@ -15,8 +15,7 @@ namespace ParsingWebsiteInformation.Connect
         {
             var client = new RestClient(url);
             var request = new RestRequest(Method.GET);
-            var response = client.Execute(request);
-            return response.Content;
+            return client.Execute(request).Content;
         }
     }
 }

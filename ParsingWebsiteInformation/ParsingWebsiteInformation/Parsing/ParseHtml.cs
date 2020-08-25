@@ -26,29 +26,34 @@ namespace ParsingWebsiteInformation.Parsing
         /// <returns>DTO</returns>
         private static ProductDto GetAttrProduct(string content)
         {
-            var parser = new HtmlParser();
-            var document = parser.ParseDocument(content);
-
-            var productName = document.QuerySelector("[class='title']").InnerHtml;
-            var normalPrice = GetClearPrice(document, "[class='without-card']");
-            var discount = GetClearPrice(document, "[class='with-period']");
-
-            var manufacturerList = document.All.Where(tag => tag.LocalName == "li"
-                                                             && tag.GetAttribute("class") == "property"
-                                                             && tag.TextContent.StartsWith("Производитель"));
-
-            var innerHtmlManufacturer = manufacturerList.First().InnerHtml;
-
-            var manufacturer = parser.ParseDocument(innerHtmlManufacturer)
-                .QuerySelector("[style='display:none;']").TextContent;
-
-            return new ProductDto
+            if (content != "")
             {
-                ProductName = productName,
-                NormalPrice = normalPrice,
-                Discount = discount,
-                Manufacturer = manufacturer
-            };
+                var parser = new HtmlParser();
+
+                var document = parser.ParseDocument(content);
+
+                var productName = document.QuerySelector("[class='title']").InnerHtml;
+                var normalPrice = GetClearPrice(document, "[class='without-card']");
+                var discount = GetClearPrice(document, "[class='with-period']");
+
+                var manufacturerList = document.All.Where(tag => tag.LocalName == "li"
+                                                                 && tag.GetAttribute("class") == "property"
+                                                                 && tag.TextContent.StartsWith("Производитель"));
+
+                var innerHtmlManufacturer = manufacturerList.First().InnerHtml;
+
+                var manufacturer = parser.ParseDocument(innerHtmlManufacturer)
+                    .QuerySelector("[style='display:none;']").TextContent;
+
+                return new ProductDto
+                {
+                    ProductName = productName,
+                    NormalPrice = normalPrice,
+                    Discount = discount,
+                    Manufacturer = manufacturer
+                };
+            }
+            return null;
         }
 
         /// <summary>

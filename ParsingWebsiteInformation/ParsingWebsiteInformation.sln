@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingWebsiteInformation", "ParsingWebsiteInformation\ParsingWebsiteInformation.csproj", "{29278D26-2448-4678-86D0-C5C07CAC369E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParsingWebsiteInformation", "ParsingWebsiteInformation\ParsingWebsiteInformation.csproj", "{29278D26-2448-4678-86D0-C5C07CAC369E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionCatching", "Common\ExceptionCatching\ExceptionCatching.csproj", "{8B799439-4486-40B3-A40A-46AD01B82BD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29278D26-2448-4678-86D0-C5C07CAC369E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29278D26-2448-4678-86D0-C5C07CAC369E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29278D26-2448-4678-86D0-C5C07CAC369E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B799439-4486-40B3-A40A-46AD01B82BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B799439-4486-40B3-A40A-46AD01B82BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B799439-4486-40B3-A40A-46AD01B82BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B799439-4486-40B3-A40A-46AD01B82BD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

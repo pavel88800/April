@@ -11,8 +11,8 @@ namespace ExceptionCatching.Handlers
         {
             var currentDirectory = Directory.GetCurrentDirectory();
 
-            var from = new MailAddress(" pavel88800 @yandex.ru", "Pavel");
-            var to = new MailAddress("pavel88800@gmail.com");
+            var from = new MailAddress(" email_from", "Name");
+            var to = new MailAddress("email_to");
 
             var m = new MailMessage(from, to);
             m.Attachments.Add(new Attachment($"{currentDirectory}\\Screenshots\\error_screenshot.jpg"));
@@ -26,7 +26,7 @@ namespace ExceptionCatching.Handlers
 
             m.IsBodyHtml = true;
             var smtp = new SmtpClient("smtp.yandex.ru", 25);
-            smtp.Credentials = new NetworkCredential("pavel88800@yandex.com", "es15102006es");
+            smtp.Credentials = new NetworkCredential("your_email", "your_password");
             smtp.EnableSsl = true;
             smtp.Send(m);
         }

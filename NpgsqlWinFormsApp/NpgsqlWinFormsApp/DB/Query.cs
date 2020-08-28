@@ -77,7 +77,7 @@ namespace NpgsqlWinFormsApp.DB
         {
             try
             {
-                var script = string.Format("SELECT * FROM test WHERE test.{0} = :{0}", parameterName);
+                var script = string.Format("SELECT * FROM test WHERE test.{0}  LIKE '%' || :{0} || '%' ", parameterName);
                 _command = new NpgsqlCommand(script, _npgSqlConnection, _transaction);
                 _command.Parameters.AddWithValue(parameterName, type, parameterValue);
 

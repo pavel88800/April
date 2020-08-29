@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization.Formatters;
 using System.Windows.Forms;
 using NpgsqlTypes;
 using NpgsqlWinFormsApp.DB;
@@ -107,6 +108,19 @@ namespace NpgsqlWinFormsApp
         private void button3_Click(object sender, EventArgs e)
         {
             customDataGridView1.SwitchVisibleColumn();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (customTextBox1.Text != string.Empty)
+                customTextBox1.EmptyDataCheck = true;
+            else
+                customTextBox1.EmptyDataCheck = false;
+
+            if (customTextBox1.Check())
+                MessageBox.Show("Поле заполнено");
+            else
+                MessageBox.Show("Поле не заполнено");
         }
     }
 }

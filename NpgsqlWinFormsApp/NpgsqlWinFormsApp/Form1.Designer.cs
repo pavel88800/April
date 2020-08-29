@@ -34,6 +34,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.customDataGridView1 = new NpgsqlWinFormsApp.CustomDataGridView();
+            this.customTextBox1 = new NpgsqlWinFormsApp.CustomTextBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +83,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.customTextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnection);
@@ -113,6 +117,23 @@
             this.customDataGridView1.Size = new System.Drawing.Size(945, 356);
             this.customDataGridView1.TabIndex = 0;
             // 
+            // customTextBox1
+            // 
+            this.customTextBox1.Location = new System.Drawing.Point(527, 83);
+            this.customTextBox1.Name = "customTextBox1";
+            this.customTextBox1.Size = new System.Drawing.Size(261, 20);
+            this.customTextBox1.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(240, 83);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(254, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Проверка ICheckableControl";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +143,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -137,6 +159,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button button3;
         private CustomDataGridView customDataGridView1;
+        private CustomTextBox customTextBox1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

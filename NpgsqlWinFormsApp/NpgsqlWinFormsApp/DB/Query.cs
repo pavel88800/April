@@ -77,9 +77,21 @@ namespace NpgsqlWinFormsApp.DB
         {
             try
             {
-                var script = string.Format("SELECT * FROM test WHERE test.{0}  LIKE '%' || :{0} || '%' ", parameterName);
-                _command = new NpgsqlCommand(script, _npgSqlConnection, _transaction);
-                _command.Parameters.AddWithValue(parameterName, type, parameterValue);
+                var script = string.Empty;
+
+                if (parameterValue == "" || parameterValue == null)
+                {
+                    script = "SELECT * FROM test";
+                    _command = new NpgsqlCommand(script, _npgSqlConnection, _transaction);
+                }
+                else
+                {
+                    script = string.Format("SELECT * FROM test WHERE test.{0}  LIKE '%' || :{0} || '%' ",
+                        parameterName);
+
+                    _command = new NpgsqlCommand(script, _npgSqlConnection, _transaction);
+                    _command.Parameters.AddWithValue(parameterName, type, parameterValue);
+                }
 
                 return true;
             }
@@ -176,7 +188,9 @@ namespace NpgsqlWinFormsApp.DB
         /// <summary>
         ///     Создаем таблицу
         /// </summary>
-        /// <returns><see cref="DataTable"/></returns>
+        /// <returns>
+        ///     <see cref="DataTable" />
+        /// </returns>
         private static DataTable CreateDataTable()
         {
             var dataTable = new DataTable();

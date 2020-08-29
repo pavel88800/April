@@ -66,5 +66,47 @@ namespace NpgsqlWinFormsApp
                 
             }
         }
+        private void SetDataGridColumnCastomization(User user)
+        {
+            MessageBox.Show("234");
+        }
+        
+
+        /*private void CustomDataGridView1_ColumnChangeSettingsEvent(DataGridColumnCastomization settings)
+        {
+            var castomProperty = context.DataGridColumnCastomization.FirstOrDefault(dg => dg.ID.Equals(settings.ID));
+            if (castomProperty != null)
+            {
+                castomProperty.Width = settings.Width;
+                castomProperty.Visible = settings.Visible;
+
+                context.Entry(castomProperty).State = EntityState.Modified;
+            }
+            else
+            {
+                var user = (User)comboBoxUserActive.SelectedValue;
+                settings.UserId = user.ID;
+                context.DataGridColumnCastomization.Add(settings);
+            }
+            context.SaveChanges();
+        }*/
+
+        private void comboBoxUserActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var user = (User)((ComboBox)sender).SelectedValue;
+                SetDataGridColumnCastomization(user);
+            }
+            catch (Exception ex)
+            {
+                // TODO: error connection
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            customDataGridView1.SwitchVisibleColumn();
+        }
     }
 }
